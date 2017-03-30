@@ -44,8 +44,26 @@ Hybrid<T>::~Hybrid()
 //simply comment the first implementation out when working on the second implementation
 //use the getKey method to dequeue/remove
 
-
-
+	bool isEmpty()
+	{
+		bool emty = q->isEmpty();
+		bool emty = sldl->isEmpty();
+		return emty;
+	}
+    void enqueue(T* item)
+	{
+		q->enqueue(item);
+		sldl->addDN(item);
+	}
+    T* dequeue()
+	{
+		T* item = q->dequeue();
+		T* item = sldl->remove();
+	}
+    ListDoublyLinkedIterator<T>* iterator()
+	{
+		
+	}
 
 
 
