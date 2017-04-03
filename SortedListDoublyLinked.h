@@ -75,28 +75,40 @@ T* SortedListDoublyLinked<T>::remove(DoubleNode<T>* curr)
    //DO THIS (prev == NULL / after == NULL are special cases)
    //remember to set loc
 
-   T* item;
-
-   DoubleNode<T>* prev;
-   DoubleNode<T>* after;
-
-
+   //DO THIS (prev == NULL / after == NULL are special cases)
+   //remember to set loc
+   DoubleNode<T>* prev = curr->getPrev();
+   DoubleNode<T>* next= curr->getNext();
 
 
 
+   //inserting into an empty list (loc is NULL)
+   if (prev == NULL) 
+   {
+      head=next;
+      head->setPrev(NULL);
+   } 
 
+   //inserting at the top of a non-empty list
+   //this is a special check as insertions at the head and right after the head are not distinguished by locateNodeAdd
+   else if (next==NULL)  
+   {
+      prev->setNext(NULL);
+   }
 
+   //general case (the node right before the insertion location returned by locateNode for add)
+   else 
+   {
+      next->setPrev(prev);
+      prev->setNext(next);
+   } 
 
-
-
-
-
-
+DoubleNode<T>* temp= curr;
 
 
    sze--;
    delete curr;
-   return item;
+   return temp;                
 }
 
 template < class T >
