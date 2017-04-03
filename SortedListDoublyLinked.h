@@ -85,8 +85,8 @@ T* SortedListDoublyLinked<T>::remove(DoubleNode<T>* curr)
    //inserting into an empty list (loc is NULL)
    if (prev == NULL) 
    {
-      head=next;
-      head->setPrev(NULL);
+      //head=next;
+      next->setPrev(NULL);
    } 
 
    //inserting at the top of a non-empty list
